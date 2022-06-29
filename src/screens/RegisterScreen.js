@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, ScrollView,  } from 'react-native';
 import React from 'react';
-import { TouchableOpacity, } from 'react-native';
 import {useNavigation} from "@react-navigation/native";
+import ImagePicker from '../components/ImagePicker';
 
 const RegisterScreen = (props) => {
     const navigation = useNavigation()
@@ -13,9 +13,9 @@ const RegisterScreen = (props) => {
   return (
     <View style={styles.container}>
          <TouchableOpacity style={styles.image}>
-             <Image source={require('../../assets/training-room-design-for-conference-halls.jpg')} style={{height: "100%", width:"100%",}} />
+             <ImagePicker />
          </TouchableOpacity>
-        
+       <ScrollView behavior='position'>
          <View style={styles.inputs}>
             <View style={{flexDirection:"row",justifyContent:"space-between", borderBottomWidth:1,borderBottomColor: "gray"}}>
                 <Text style={{fontSize: 20,marginVertical: 20, }}>Full Name</Text>
@@ -47,13 +47,14 @@ const RegisterScreen = (props) => {
                 <TextInput style={{marginBottom:1, fontSize: 20, width: "80%",textAlign:"right"}} placeholder="/joan.shay" placeholderTextColor={'#aaaaaa'} />
             </View>
          </View>
-
-         <View style={styles.blank}></View>
+         
+         </ScrollView>
          <View style={styles.button}>
-            <TouchableOpacity style={{backgroundColor:"red", alignSelf:"center",justifyContent:"center", height:"70%", width:"100%", borderRadius:5}} onPress={navigateToHomeScreenQRCode}>
+            <TouchableOpacity onPress={navigateToHomeScreenQRCode} style={{backgroundColor:"red", alignSelf:"center",justifyContent:"center", height:"70%", width:"100%", borderRadius:5}}>
                 <Text style={{fontSize: 30, color: "white", textAlign:"center" }}>REGISTER</Text>
             </TouchableOpacity>
          </View>
+        
     </View>
   )
 }
@@ -65,17 +66,15 @@ const styles = StyleSheet.create({
         flex:1,
     },
     image:{
-        flex:0.3,
+        flex:0.9,
+        backgroundColor:"lightblue"
     },
     inputs:{
         flex:0.5,
         paddingHorizontal: 16,
     },
-    blank:{
-        flex: 0.1
-    },
     button:{
-        flex:0.1,
+        flex:0.2,
         justifyContent:"center",
         paddingHorizontal:16,
     },

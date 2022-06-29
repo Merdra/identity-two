@@ -7,8 +7,8 @@ const Login = (props) => {
 
     const navigation = useNavigation()
 
-    const navigateToDetailsScreen = () => {
-      navigation.navigate("DetailsScreen")
+    const navigateToMyProfile = () => {
+      navigation.navigate("MyProfile")
     }
 
   return (
@@ -30,7 +30,7 @@ const Login = (props) => {
             
          </View>
          <View style={styles.button}>
-            <TouchableOpacity style={{backgroundColor:"red", alignSelf:"center",justifyContent:"center", height:"100%", width:"100%", borderRadius:5}} onPress={navigateToDetailsScreen}>
+            <TouchableOpacity style={{backgroundColor:"red", alignSelf:"center",justifyContent:"center", height:"100%", width:"100%", borderRadius:5}} onPress={navigateToMyProfile}>
                 <Text style={{fontSize: 30, color: "white", textAlign:"center" }}>SIGN IN</Text>
             </TouchableOpacity>
          </View>
@@ -71,5 +71,4 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         marginTop: 30
     }
-
 })
